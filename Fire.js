@@ -89,6 +89,18 @@ class Fire {
       alert(message);
     }
   };
+
+  // Helpers
+  get collection() {
+    return firebase.firestore().collection(collectionName);
+  }
+
+  get uid() {
+    return (firebase.auth().currentUser || {}).uid;
+  }
+  get timestamp() {
+    return Date.now();
+  }
 }
 
 Fire.shared = new Fire();
